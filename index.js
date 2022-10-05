@@ -27,6 +27,7 @@ const mongoose = require(`mongoose`);
 const bcrypt = require(`bcrypt`);
 const methodOverride = require(`method-override`);
 const Characters = require(`./models/characters.js`)
+const CharaSeed = require(`./models/seeds.js`)
 const charactersController = require(`./controllers/charactersController.js`)
 
 require(`dotenv`).config();
@@ -71,9 +72,27 @@ mongoose.connection.on(`error`,(err)=> console.log(err))
 ======================*/
 
 app.get(`/`,(req,res)=>{
-  res.render(`index.ejs`);
+  Characters.find({},(err,characterData)=>{
+    if(err){
+      console.log(`Error while retrieving data: `, err.message)
+    } else {
+      res.render(`index.ejs`, {chara: characterData});
+    }
+  })
 })
 
 app.listen(portNum, () => {
   console.log(`Currently listening to PORT: `, portNum);
 })
+
+/*======================
+  Seed Data
+======================*/
+
+// Characters.create(CharaSeed,(err,characterData)=>{
+//   if(err){
+//     console.log(`Error while seeding database: `, err.message)
+//   } else {
+//     console.log(`Created`)
+//   }
+// })

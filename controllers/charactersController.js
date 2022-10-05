@@ -4,7 +4,7 @@ const router = express.Router();
 const Characters = require(`../models/characters.js`);
 
 router.get(`/`,(req,res)=>{
-  res.render(`characters.index.ejs`)
+  res.render(`characters/index.ejs`)
 })
 
 router.get(`/new`, (req, res) => {
