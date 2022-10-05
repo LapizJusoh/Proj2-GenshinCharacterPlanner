@@ -14,7 +14,7 @@ REQUIRED INSTALL
 12. require(`dotenv`).config();
 13. app.use(express.urlencoded({extended: true}));
 14. app.use(methodOverride(`_method`));
-15. 
+15. if using Heroku, PROCFILE
 */
 
 /*======================
