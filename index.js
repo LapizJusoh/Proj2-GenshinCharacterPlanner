@@ -24,6 +24,7 @@ REQUIRED INSTALL
 const express = require(`express`);
 const session = require(`express-session`);
 const mongoose = require(`mongoose`);
+const bcrypt = require(`bcrypt`);
 const methodOverride = require(`method-override`);
 const Characters = require(`./models/characters.js`)
 const charactersController = require(`./controllers/charactersController.js`)
