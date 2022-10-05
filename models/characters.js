@@ -18,13 +18,13 @@ const maxLevelMats = new Schema({
 })
 
 const charactersSchema = new Schema({
-  name: {type:String,required:true},
+  name: String,
   image: String,
   talents: [talentDetails],
   maxLevelRequirement: [maxLevelMats]
 })
 
-charactersSchema.index({username:1},{unique:true})
+charactersSchema.index({name:1},{unique:true})
 
 const Characters = mongoose.model(`Characters`,charactersSchema);
 

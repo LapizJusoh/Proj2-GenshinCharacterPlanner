@@ -89,10 +89,3 @@ app.listen(portNum, () => {
   Seed Data
 ======================*/
 
-// Characters.create(CharaSeed,(err,characterData)=>{
-//   if(err){
-//     console.log(`Error while seeding database: `, err.message)
-//   } else {
-//     console.log(`Created`)
-//   }
-// })

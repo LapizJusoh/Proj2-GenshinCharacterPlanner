@@ -9,7 +9,11 @@
 <body>
   <h1>Welcome!</h1>
   <ul><% for(let i=0;i<chara.length;i++){ %>
-    <li><%=chara[i].name%></li><% } %>
+    <li><a href="/characters/<%=chara[i]._id%>"><%=chara[i].name%></a> <a href="/characters/<%=chara[i]._id%>/edit"><button>Edit</button></a>
+    <form action="/characters/<%=chara[i]._id%>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete">
+    </form></li><% } %>
+    <li><a href="/characters/new"><button>Add New Character</button></a></li>
   </ul>
   
 </body>

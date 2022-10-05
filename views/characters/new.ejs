@@ -7,6 +7,21 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <h1>Add new character</h1>
+  <form action="/characters" method="POST">
+    <p>Name: <input type="text" name="name" required></p>
+    <p>Image URL: <input type="text" name="image"></p>
+    <p>Talents:</p>
+    <ol>
+      <ul>
+        <li><input type="text" name="talents[`talentName`]" placeholder="Talent Name"></li>
+        <li><input type="text" name="talents[`talentDesc`]" placeholder="Talent Description"></li>
+        <!-- <li><input type="text" name="talents.talentName" placeholder="Talent Name"></li>
+        <li><input type="text" name="talents.talentDesc" placeholder="Talent Description"></li> -->
+      </ul>
+    </ol>
+    <p><input type="submit" value="Submit"></p>
+  </form>
+  <p><a href="/"><button>Return to Index</button></a></p>
 </body>
 </html>
