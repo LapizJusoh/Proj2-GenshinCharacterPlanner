@@ -18,6 +18,7 @@ const maxLevelMats = new Schema({
 
 const charactersSchema = new Schema({
   name: String,
+  element: String,
   image: String,
   talents: [talentDetails],
   maxLevelRequirement: [maxLevelMats]

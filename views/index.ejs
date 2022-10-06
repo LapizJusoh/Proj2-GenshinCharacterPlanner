@@ -4,17 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Genshin Character Planner</title>
 </head>
 <body>
   <h1>Welcome!</h1>
+  <h2>Characters</h2>
   <ul><% for(let i=0;i<chara.length;i++){ %>
-    <li><a href="/characters/<%=chara[i]._id%>"><%=chara[i].name%></a> <a href="/characters/<%=chara[i]._id%>/edit"><button>Edit</button></a>
-    <form action="/characters/<%=chara[i]._id%>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete">
-    </form></li><% } %>
+    <li><a href="/characters/<%=chara[i]._id%>"><%=chara[i].name%></a>
+      <p>
+        <a href="/characters/<%=chara[i]._id%>/edit"><button>Edit</button></a>
+        <form class="deleteBtn" action="/characters/<%=chara[i]._id%>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+      </p></li><% } %>
     <li><a href="/characters/new"><button>Add New Character</button></a></li>
   </ul>
+
+  <h2>Domains</h2>
+
+  <h2>Materials</h2>
+
+  <h2>Enemies</h2>
   
 </body>
 </html>

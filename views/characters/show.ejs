@@ -7,8 +7,19 @@
   <title><%=chara.name%></title>
 </head>
 <body>
+  <img src="<%=chara.image%>"></image>
   <h1><%=chara.name%></h1>
-
+  <h3>Element</h3>
+  <p><%=chara.element%></p>
+  <h3>Talents</h3>
+  <ul>
+  <% for(let i=0;i<chara.talents.length;i++){ %>
+    <li>
+      <p><strong><%=chara.talents[i].talentName%></strong></p>
+      <p><%=chara.talents[i].talentDesc%></p>
+    </li>
+  <% } %>
+  </ul>
   <p><a href="/"><button>Return to Index</button></a></p>
 </body>
 </html>
