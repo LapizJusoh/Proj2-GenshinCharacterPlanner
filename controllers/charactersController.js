@@ -30,26 +30,14 @@ router.post(`/`, (req,res)=>{
 
   console.log(req.body);
   res.send(req.body);
-  // Characters.create(req.body,(err,newChara)=>{
-  //   console.log
-  //   if(err){
-  //     console.log(`Encounted Error while CREATING new Character: `, err.message)
-  //   } else {
-  //     console.log(`Created new character. `,newChara);
-  //   }
-  // })
-
-  // let newTalent = {
-  //   talentName: req.body.talentName,
-  //   talentDesc: req.body.talentDesc
-  // }
-  
-  // Characters.findOneAndUpdate({name: req.body.name},{ $push : {
-  //   talent: newTalent
-  // }},{upsert: true})
-
-  // res.redirect(`/`);
-
+//   Characters.create(req.body,(err,newChara)=>{
+//     console.log
+//     if(err){
+//       console.log(`Encounted Error while CREATING new Character: `, err.message)
+//     } else {
+//       console.log(`Created new character. `,newChara);
+//     }
+//   })
 })
 
 //------ Show

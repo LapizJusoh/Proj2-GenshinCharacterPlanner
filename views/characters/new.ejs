@@ -11,15 +11,22 @@
   <form action="/characters" method="POST">
     <p>Name: <input type="text" name="name" required></p>
     <p>Image URL: <input type="text" name="image"></p>
-    <p>Talents:</p>
+    <p>Talents:</p><% let maxTalent = 3;for(let i=0;i<maxTalent;i++){ %>
     <ol>
       <ul>
-        <li><input type="text" name="talents[`talentName`]" placeholder="Talent Name"></li>
-        <li><input type="text" name="talents[`talentDesc`]" placeholder="Talent Description"></li>
-        <!-- <li><input type="text" name="talents.talentName" placeholder="Talent Name"></li>
-        <li><input type="text" name="talents.talentDesc" placeholder="Talent Description"></li> -->
+        <li><input type="text" name="talents[<%=i%>][talentName]" placeholder="Talent Name"></li>
+        <li><input type="text" name="talents[<%=i%>][talentDesc]" placeholder="Talent Description"></li>
       </ul>
+    </ol><% } %>
+    <p>Resources Needed to reach Max Level:</p>
+    <ol>
+      <% let maxMats = 3; for(let i=0;i<maxMats;i++){ %>
+          <li>Material needed: <input type="text" name="maxLevelRequirement[materials][<%=i%>][name]"></li>
+          <li>Material amount: <input type="number" name="maxLevelRequirement[materials][<%=i%>][amount]"></li>
+      <% } %>
+      <li>Total Mora: <input type="number" name="maxLevelRequirement[mora]" placeholder="Amount of mora(money) needed"></li>
     </ol>
+
     <p><input type="submit" value="Submit"></p>
   </form>
   <p><a href="/"><button>Return to Index</button></a></p>

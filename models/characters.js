@@ -13,8 +13,7 @@ const matDetails = new Schema({
 
 const maxLevelMats = new Schema({
   mora: Number,
-  generalMaterials: [matDetails],
-  charaMaterials: [matDetails]
+  materials: [matDetails]
 })
 
 const charactersSchema = new Schema({
