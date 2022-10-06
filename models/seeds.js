@@ -70,13 +70,13 @@ module.exports = [
     talents: [
       {
         talentName: `Searing Onslaught`,
-        talentDesc: `Performs a forward slash that deals Pyro DMG.<br>
+        talentDesc: `Performs a forward slash that deals Pyro DMG.
         This skill can be consecutively used 3 times. Enters CD if not cast again within a short period. `
       },
       {
         talentName: `Dawn`,
-        talentDesc: `Releases intense flames to knock back nearby opponents, dealing Pyro DMG.<br>
-        The flames then converge into the weapon, summoning a Phoenix that flies forward and deals massive Pyro DMG to all opponents in its path. The Phoenix explodes upon reaching its destination, causing a large amount of AoE Pyro DMG.<br>
+        talentDesc: `Releases intense flames to knock back nearby opponents, dealing Pyro DMG.
+        The flames then converge into the weapon, summoning a Phoenix that flies forward and deals massive Pyro DMG to all opponents in its path. The Phoenix explodes upon reaching its destination, causing a large amount of AoE Pyro DMG.
         The searing flames that run down his blade cause it to be infused with Pyro. `
       },
       {

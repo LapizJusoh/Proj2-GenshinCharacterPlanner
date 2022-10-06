@@ -32,6 +32,7 @@ router.post(`/`, (req,res)=>{
     console.log
     if(err){
       console.log(`Encounted Error while CREATING new Character: `, err.message)
+      res.send(err.message);
     } else {
       console.log(`Created new character. `,newChara);
       res.redirect(`/`)
@@ -64,7 +65,7 @@ router.delete(`/:id`, (req, res) => {
   Characters.findByIdAndDelete(req.params.id,(err,deletedChara)=>{
     if(err){
       console.log(`Error encounted while DELETING data: `,err.message);
-      res.send(err);
+      res.send(err.message);
     }else{
       console.log(`Entry deleted. `,deletedChara);
       res.render(`characters/edit.ejs`);
@@ -79,7 +80,8 @@ router.delete(`/:id`, (req, res) => {
 router.get(`/addSeed/forCharacterDB`, (req, res) => {
   Characters.create(CharaSeed,(err,characterData)=>{
     if(err){
-      console.log(`Error while seeding database: `, err.message)
+      console.log(`Error while seeding database: `, err.message);
+      res.send(err.message);
     } else {
       console.log(`Created`)
     }
@@ -91,11 +93,24 @@ router.get(`/delete/everything/i/am/sure`, (req, res) => {
   Characters.deleteMany({},(err,characterData)=>{
     if(err){
       console.log(`Error while seeding database: `, err.message)
+      res.send(err.message);
     } else {
       console.log(`Deleted`)
     }
   })
   res.redirect(`/`);
 });
+
+router.get(`/drop/everything/and/reset/because/I/goofed/up`, (req,res) => {
+  Characters.collection.drop((err)=>{
+    if(err){
+      console.log(`Error while removing collection: `,err.message);
+      res.send(err.message);
+    } else {
+      console.log(`Collection Dropped.`);
+      res.redirect(`/`);
+    }
+  })
+})
 
 module.exports = router;
