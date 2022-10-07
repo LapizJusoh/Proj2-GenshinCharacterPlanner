@@ -5,30 +5,33 @@
 </head>
 <body>
   <%- include(`../../partials/header.ejs`)%>
-  <h1>Editing character: </h1>
-  <form action="/characters" method="POST">
-    <p>Name: <input type="text" name="name" placeholder="Character Name" required></p>
-    <p>Name: <input type="text" name="element" placeholder="Character's Element" required></p>
-    <p>Image URL: <input type="text" name="image" placeholder="Should be 256x256 px"></p>
-    <p>Talents:</p><% let maxTalent = 3;for(let i=0;i<maxTalent;i++){ %>
-    <ol>
+  <main class="container">
+    <h1>Editing character: </h1>
+    <form action="/characters/<%=chara.id%>?_method=PUT" method="POST">
+      <p>Name: <input type="text" name="name" value="<%=chara.name%>" required></p>
+      <p>Name: <input type="text" name="element" value="<%=chara.element%>" required></p>
+      <img src="<%=chara.image%>" style="width:100px;">
+      <p>Preview Image</p>
+      <p>Image URL: <input type="text" name="image" value="<%=chara.image%>"></p>
+      <p>Talents:</p><%for(let i=0;i<chara.talents.length;i++){ %>
+      <ol>
+        <ul>
+          <li><input type="text" name="talents[<%=i%>][talentName]" value="<%=chara.talents[i].talentName%>"><br>
+            <textarea name="talents[<%=i%>][talentDesc]" cols="50"><%=chara.talents[i].talentDesc%></textarea></li>
+        </ul>
+      </ol><% } %>
+      <h3>Resources Needed to reach Max Level:</h3>
+      <p>Total Mora: <input type="number" name="maxLevelRequirement.mora" value="<%=chara.maxLevelRequirement.mora%>"></p>
+      <% for(let i=0;i<chara.maxLevelRequirement.materials.length;i++){ %>
       <ul>
-        <li><input type="text" name="talents[<%=i%>][talentName]" placeholder="Talent Name"></li>
-        <li><input type="text" name="talents[<%=i%>][talentDesc]" placeholder="Talent Description"></li>
-      </ul>
-    </ol><% } %>
-    <p>Resources Needed to reach Max Level:</p>
-    <ul>
-      <li>Total Mora: <input type="number" name="maxLevelRequirement[mora]" placeholder="Amount of mora(money) needed"></li>
-      <% let maxMat = 3;for(let i=0;i<maxTalent;i++){ %>
-      <ul>
-        <li>Material needed: <input type="text" name="maxLevelRequirement[materials][][name]"></li>
-        <li>Material amount: <input type="number" name="maxLevelRequirement[materials][][amount]"></li>
-      </ul>
+          <li>Material needed: <input type="text" name="maxLevelRequirement.materials[<%=i%>][name]" value="<%=chara.maxLevelRequirement.materials[i].name%>"></li>
+          <li>Material amount: <input type="number" name="maxLevelRequirement.materials[<%=i%>][amount]" value="<%=chara.maxLevelRequirement.materials[i].amount%>"></li>
+          </ul>
       <% } %>
-    </ul>
-    <p><input type="submit" value="Submit"></p>
-  </form>
+      <p><input type="submit" value="Submit"></p>
+    </form>
+    <p><a href="/"><button>Return to Index</button></a></p>
+  </main>
   <%- include(`../../partials/footer.ejs`)%>
 </body>
 </html>

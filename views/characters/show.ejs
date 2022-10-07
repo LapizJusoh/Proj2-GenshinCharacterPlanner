@@ -19,6 +19,15 @@
     </li>
   <% } %>
   </ul>
+
+  <h3>Mora and Materials needed to Level Up to Max</h3>
+  <ul>
+    <li>Mora: <%=chara.maxLevelRequirement.mora%></li>
+  <% for(let i=0;i<chara.maxLevelRequirement.materials.length;i++){ %>
+    <li><%=chara.maxLevelRequirement.materials[i].name%> x <%=chara.maxLevelRequirement.materials[i].amount%></li>
+  <% } %>
+  </ul>
+  
   <p><a href="/"><button>Return to Index</button></a></p>
   </main>
   <%- include(`../../partials/footer.ejs`)%>

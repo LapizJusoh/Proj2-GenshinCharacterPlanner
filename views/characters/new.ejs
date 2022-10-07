@@ -14,20 +14,20 @@
       <p>Talents:</p><% let maxTalent = 3;for(let i=0;i<maxTalent;i++){ %>
       <ol>
         <ul>
-          <li><input type="text" name="talents[<%=i%>][talentName]" placeholder="Talent Name"></li>
-          <li><input type="text" name="talents[<%=i%>][talentDesc]" placeholder="Talent Description"></li>
+          <li><input type="text" name="talents[<%=i%>][talentName]" placeholder="Talent Name"> <button>Delete Talent</button><br>
+          <textarea name="talents[<%=i%>][talentDesc]" placeholder="Talent Description" cols="50"></textarea></li>
         </ul>
       </ol><% } %>
-      <p>Resources Needed to reach Max Level:</p>
+      <p><button>Add new Talent</button></p>
+      <h3>Resources Needed to reach Max Level:</h3>
+      <p>Total Mora: <input type="number" name="maxLevelRequirement[mora]" placeholder="Amount of mora(money) needed"></p>
+      <% let maxMat = 9;for(let i=0;i<maxMat;i++){ %>
       <ul>
-        <li>Total Mora: <input type="number" name="maxLevelRequirement[mora]" placeholder="Amount of mora(money) needed"></li>
-        <% let maxMat = 3;for(let i=0;i<maxTalent;i++){ %>
-        <ul>
-          <li>Material needed: <input type="text" name="maxLevelRequirement[materials][][name]"></li>
-          <li>Material amount: <input type="number" name="maxLevelRequirement[materials][][amount]"></li>
-        </ul>
-        <% } %>
+        <li>Material needed: <input type="text" name="maxLevelRequirement.materials[<%=i%>][name]"> <button>Delete Material</button></li>
+        <li>Material amount: <input type="number" name="maxLevelRequirement.materials[<%=i%>][amount]" cols="20"></li>
       </ul>
+      <% } %>
+      <p><button>Add new Material</button></p>
       <p><input type="submit" value="Submit"></p>
     </form>
     <p><a href="/"><button>Return to Index</button></a></p>

@@ -21,7 +21,7 @@ const charactersSchema = new Schema({
   element: String,
   image: String,
   talents: [talentDetails],
-  maxLevelRequirement: [maxLevelMats]
+  maxLevelRequirement: maxLevelMats
 })
 
 charactersSchema.index({name:1},{unique:true})

@@ -72,13 +72,7 @@ mongoose.connection.on(`error`,(err)=> console.log(err))
 ======================*/
 
 app.get(`/`,(req,res)=>{
-  Characters.find({},(err,characterData)=>{
-    if(err){
-      console.log(`Error while retrieving data: `, err.message)
-    } else {
-      res.render(`index.ejs`, {chara: characterData});
-    }
-  })
+  res.redirect(`/characters`);
 })
 
 app.listen(portNum, () => {

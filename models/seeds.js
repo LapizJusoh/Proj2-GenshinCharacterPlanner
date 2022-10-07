@@ -19,49 +19,47 @@ module.exports = [
         Not stackable with Passive Talents that provide the exact same effects. `
       }
     ],
-    maxLevelRequirement: [
-      {
-        mora: 420000,
-        materials: [
-          {
-            name: `Small Lamp Grass`,
-            amount:168 
-          },
-          {
-            name: `Firm Arrowhead`,
-            amount:18 
-          },
-          {
-            name: `Sharp Arrowhead`,
-            amount:30 
-          },
-          {
-            name: `Weather Arrowhead`,
-            amount:36 
-          },
-          {
-            name: `Everflame Seed`,
-            amount:46
-          },
-          {
-            name: `Agnidus Agate Sliver`,
-            amount:1
-          },
-          {
-            name: `Agnidus Agate Fragment`,
-            amount:9
-          },
-          {
-            name: `Agnidus Agate Chunk`,
-            amount:9
-          },
-          {
-            name: `Agnidus Agate Gemstone`,
-            amount:6 
-          }
-        ]
-      }
-    ]
+    maxLevelRequirement: {
+      mora: 420000,
+      materials: [
+        {
+          name: `Small Lamp Grass`,
+          amount:168 
+        },
+        {
+          name: `Firm Arrowhead`,
+          amount:18 
+        },
+        {
+          name: `Sharp Arrowhead`,
+          amount:30 
+        },
+        {
+          name: `Weather Arrowhead`,
+          amount:36 
+        },
+        {
+          name: `Everflame Seed`,
+          amount:46
+        },
+        {
+          name: `Agnidus Agate Sliver`,
+          amount:1
+        },
+        {
+          name: `Agnidus Agate Fragment`,
+          amount:9
+        },
+        {
+          name: `Agnidus Agate Chunk`,
+          amount:9
+        },
+        {
+          name: `Agnidus Agate Gemstone`,
+          amount:6 
+        }
+      ]
+    }
   },
   {
     name: `Diluc`,
@@ -84,49 +82,47 @@ module.exports = [
         talentDesc: `Refunds 15% of the ores used when Forging Claymore-type weapons.`
       }
     ],
-    maxLevelRequirement: [
-      {
-        mora: 420000,
-        materials: [
-          {
-            name: `Small Lamp Grass`,
-            amount:168 
-          },
-          {
-            name: `Recruit's Insignia`,
-            amount:18 
-          },
-          {
-            name: `Sergeant's Insignia`,
-            amount:30 
-          },
-          {
-            name: `Lieutenant's Insignia`,
-            amount:36 
-          },
-          {
-            name: `Everflame Seed`,
-            amount:46
-          },
-          {
-            name: `Agnidus Agate Sliver`,
-            amount:1
-          },
-          {
-            name: `Agnidus Agate Fragment`,
-            amount:9
-          },
-          {
-            name: `Agnidus Agate Chunk`,
-            amount:9
-          },
-          {
-            name: `Agnidus Agate Gemstone`,
-            amount:6 
-          }
-        ]
-      }
-    ]
+    maxLevelRequirement: {
+      mora: 420000,
+      materials: [
+        {
+          name: `Small Lamp Grass`,
+          amount:168 
+        },
+        {
+          name: `Recruit's Insignia`,
+          amount:18 
+        },
+        {
+          name: `Sergeant's Insignia`,
+          amount:30 
+        },
+        {
+          name: `Lieutenant's Insignia`,
+          amount:36 
+        },
+        {
+          name: `Everflame Seed`,
+          amount:46
+        },
+        {
+          name: `Agnidus Agate Sliver`,
+          amount:1
+        },
+        {
+          name: `Agnidus Agate Fragment`,
+          amount:9
+        },
+        {
+          name: `Agnidus Agate Chunk`,
+          amount:9
+        },
+        {
+          name: `Agnidus Agate Gemstone`,
+          amount:6 
+        }
+      ]
+    }
   },
   {
     name: `Jean`,
@@ -151,48 +147,46 @@ module.exports = [
         talentDesc: `When a Perfect Cooking is achieved on a dish with restorative effects, Jean has a 12% chance to obtain double the product. `
       }
     ],
-    maxLevelRequirement: [
-      {
-        mora: 420000,
-        materials: [
-          {
-            name: `Dandelion Seed`,
-            amount:168 
-          },
-          {
-            name: `Damaged Mask`,
-            amount:18 
-          },
-          {
-            name: `Stained Mask`,
-            amount:30 
-          },
-          {
-            name: `Ominous Mask`,
-            amount:36 
-          },
-          {
-            name: `Hurricane Seed`,
-            amount:46
-          },
-          {
-            name: `Vayuda Turquoise Sliver`,
-            amount:1
-          },
-          {
-            name: `Vayuda Turquoise Fragment`,
-            amount:9
-          },
-          {
-            name: `Vayuda Turquoise Chunk`,
-            amount:9
-          },
-          {
-            name: `Vayuda Turquoise Gemstone`,
-            amount:6 
-          }
-        ]
-      }
-    ]
+    maxLevelRequirement: {
+      mora: 420000,
+      materials: [
+        {
+          name: `Dandelion Seed`,
+          amount:168 
+        },
+        {
+          name: `Damaged Mask`,
+          amount:18 
+        },
+        {
+          name: `Stained Mask`,
+          amount:30 
+        },
+        {
+          name: `Ominous Mask`,
+          amount:36 
+        },
+        {
+          name: `Hurricane Seed`,
+          amount:46
+        },
+        {
+          name: `Vayuda Turquoise Sliver`,
+          amount:1
+        },
+        {
+          name: `Vayuda Turquoise Fragment`,
+          amount:9
+        },
+        {
+          name: `Vayuda Turquoise Chunk`,
+          amount:9
+        },
+        {
+          name: `Vayuda Turquoise Gemstone`,
+          amount:6 
+        }
+      ]
+    }
   },
 ];

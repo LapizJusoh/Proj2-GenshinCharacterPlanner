@@ -15,7 +15,13 @@ const CharaSeed = require(`../models/seeds.js`)
 //------ Index
 
 router.get(`/`,(req,res)=>{
-  res.render(`characters/index.ejs`)
+  Characters.find({},(err,characterData)=>{
+    if(err){
+      console.log(`Error while retrieving data: `, err.message)
+    } else {
+      res.render(`index.ejs`, {chara: characterData});
+    }
+  })
 })
 
 //------ New
@@ -56,8 +62,31 @@ router.get(`/:id`, (req, res) => {
 //------ Edit
 
 router.get(`/:id/edit`, (req, res) => {
-  res.render(`characters/edit.ejs`);
+  Characters.findById(req.params.id,(err,charaSpecific)=>{
+    if(err){
+      console.log(`Error encountered while GETTING data. `,err.message);
+      res.send(err.message);
+    } else {
+      res.render(`characters/edit.ejs`,{chara: charaSpecific})
+    }
+  })
 });
+
+//------ Update
+
+router.put(`/:id`, (req,res)=>{
+
+  Characters.findByIdAndUpdate(req.params.id,req.body,(err,updatedChara)=>{
+    console.log
+    if(err){
+      console.log(`Encounted Error while UPDATING existing Character: `, err.message)
+      res.send(err.message);
+    } else {
+      console.log(`Updated character details. `,updatedChara);
+      res.redirect(`/characters/` + updatedChara.id);
+    }
+  })
+})
 
 //------ Delete
 
