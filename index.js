@@ -29,6 +29,7 @@ const methodOverride = require(`method-override`);
 const Characters = require(`./models/characters.js`);
 const CharaSeed = require(`./models/seeds.js`);
 const charactersController = require(`./controllers/charactersController.js`);
+const usersController = require(`./controllers/usersController.js`)
 
 require(`dotenv`).config();
 
@@ -56,6 +57,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride(`_method`));
 app.use(express.static(`public`));
 app.use(`/characters`,charactersController);
+app.use(`/users`,usersController);
 
 /*======================
   MONGOOSE-CONNECTION
