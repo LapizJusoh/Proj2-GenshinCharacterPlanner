@@ -24,12 +24,12 @@ REQUIRED INSTALL
 const express = require(`express`);
 const session = require(`express-session`);
 const mongoose = require(`mongoose`);
-const bcrypt = require(`bcrypt`);
 const methodOverride = require(`method-override`);
 const Characters = require(`./models/characters.js`);
 const CharaSeed = require(`./models/seeds.js`);
 const charactersController = require(`./controllers/charactersController.js`);
 const usersController = require(`./controllers/usersController.js`)
+const sessionsController = require(`./controllers/sessionsController.js`)
 
 require(`dotenv`).config();
 
@@ -58,6 +58,7 @@ app.use(methodOverride(`_method`));
 app.use(express.static(`public`));
 app.use(`/characters`,charactersController);
 app.use(`/users`,usersController);
+app.use(`/sessions`,sessionsController);
 
 /*======================
   MONGOOSE-CONNECTION

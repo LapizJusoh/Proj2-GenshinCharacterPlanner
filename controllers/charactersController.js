@@ -6,6 +6,7 @@ const express = require(`express`);
 const bcrypt = require(`bcrypt`);
 const router = express.Router();
 const Characters = require(`../models/characters.js`);
+const Users = require(`../models/users.js`);
 const CharaSeed = require(`../models/seeds.js`)
 
 /*======================
@@ -19,7 +20,7 @@ router.get(`/`,(req,res)=>{
     if(err){
       console.log(`Error while retrieving data: `, err.message)
     } else {
-      res.render(`index.ejs`, {chara: characterData});
+      res.render(`index.ejs`, {chara: characterData,userDetails: req.session.currentUser});
     }
   })
 })
@@ -27,7 +28,7 @@ router.get(`/`,(req,res)=>{
 //------ New
 
 router.get(`/new`, (req, res) => {
-  res.render(`characters/new.ejs`);
+  res.render(`characters/new.ejs`,{userDetails: req.session.currentUser});
 });
 
 //------ Post
@@ -54,7 +55,7 @@ router.get(`/:id`, (req, res) => {
       console.log(`Error encountered while GETTING data: `, err.message);
       res.send(err);
     } else {
-      res.render(`characters/show.ejs`,{chara: charaDetails});
+      res.render(`characters/show.ejs`,{chara: charaDetails, userDetails: req.session.currentUser});
     }
   })
 });
@@ -67,7 +68,7 @@ router.get(`/:id/edit`, (req, res) => {
       console.log(`Error encountered while GETTING data. `,err.message);
       res.send(err.message);
     } else {
-      res.render(`characters/edit.ejs`,{chara: charaSpecific})
+      res.render(`characters/edit.ejs`,{chara: charaSpecific,userDetails: req.session.currentUser})
     }
   })
 });

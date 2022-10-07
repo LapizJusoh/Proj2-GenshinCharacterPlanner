@@ -14,7 +14,7 @@ const Users = require(`../models/users.js`);
 //------ New
 
 router.get(`/new`, (req,res)=>{
-  res.render(`users/new.ejs`)
+  res.render(`users/new.ejs`,{userDetails: req.session.currentUser})
 })
 
 //------ Post
