@@ -1,12 +1,12 @@
 <header class="container-fluid" style="background-color: #e4c179;">
   <div class="d-flex justify-content-around">
     <div class="p-2">
-      <img src="https://i.imgur.com/Lod0f2c.png" style="max-width: 250px;"> <span class="h1 align-middle">Character Planner</span>
+      <img src="https://i.imgur.com/Lod0f2c.png" style="max-width: 250px;"> <span class="h1 align-middle gen-title">Character Planner</span>
     </div>
     <div class="p-2 align-self-center">
       <% if(userDetails){ %>
       Logged in <% } else { %><a href="/users/new">Register</a><%}%> | 
-      <% if(userDetails){ %><a href="/sessions">Log Out</a><% } else { %><a href="/sessions/new">Log In</a> <% } %>
+      <% if(userDetails){ %><form action="/sessions?_method=DELETE" method="POST"><button class="">Log Out</button></form><% } else { %><a href="/sessions/new">Log In</a> <% } %>
       <p>Welcome<% if(userDetails){ %> back, <%=userDetails.username%><% } else { %>, Traveller!</p> <% } %>
     </div>
   </div>

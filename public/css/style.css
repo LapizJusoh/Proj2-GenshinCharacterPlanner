@@ -1,0 +1,19 @@
+.gen-title {
+  font-family: 'Libre Baskerville', serif;
+  color: white;
+}
+
+.charaFigure {
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #EDE4E0;
+}
+
+.charaFigure:hover {
+  background-color: aquamarine;
+}
+
+form {
+  display: inline;
+  margin: 0;
+}
