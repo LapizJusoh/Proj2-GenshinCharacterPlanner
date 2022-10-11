@@ -5,7 +5,7 @@
 </head>
 <body>
   <%- include(`../partials/header.ejs`)%>
-  <main class="container">
+  <main class="container my-4">
     <h2 class="text-center">Characters</h2>
     <div class="row justify-content-center text-center"><% for(let i=0;i<chara.length;i++){ %>
       <div class="col"><a href="/characters/<%=chara[i]._id%>">
@@ -15,7 +15,7 @@
         </figure></a>
         <% if(userDetails) {%>
         <div><a href="/characters/<%=chara[i]._id%>/edit"><button class="btn btn-outline-primary">Edit</button></a>
-          <form class="deleteBtn" action="/characters/<%=chara[i]._id%>?_method=DELETE" method="POST">
+          <form class="form-inline" action="/characters/<%=chara[i]._id%>?_method=DELETE" method="POST">
           <button class="btn btn-outline-primary">Delete</button>
           </form></div> <% } %>
       </div><% } %>

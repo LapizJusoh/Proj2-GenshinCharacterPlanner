@@ -5,12 +5,20 @@
 </head>
 <body>
   <%- include(`../../partials/header.ejs`)%>
-  <main class="container">
-  <img src="<%=chara.image%>"></image>
-  <h1><%=chara.name%></h1>
-  <h3>Element</h3>
-  <p><%=chara.element%></p>
-  <h3>Talents</h3>
+  <main class="container my-4">
+  <div class="text-center">
+    <img src="<%=chara.image%>"></image>
+    <h1 class="characterName"><%=chara.name%></h1>
+  </div>
+  <h3>Element: <span <% if(chara.element==="Pyro") { %>style="color:red;"
+    <% } else if(chara.element==="Hydro"){ %>style="color:teal;"
+    <% } else if(chara.element==="Electro"){%>style="color:blueviolet;"
+    <% } else if(chara.element==="Dendro"){%>style="greenyellow:;"
+    <% } else if(chara.element==="Anemo"){%>style="color:aquamarine;"
+    <% } else if(chara.element==="Geo"){%>style="color:gold;"
+    <% } else if(chara.element==="Cryo"){%>style="color:blue;"<% } %>
+  ><strong><%=chara.element%></strong></span></h3>
+  <h2>Talents</h2>
   <ul>
   <% for(let i=0;i<chara.talents.length;i++){ %>
     <li>
@@ -27,8 +35,16 @@
     <li><%=chara.maxLevelRequirement.materials[i].name%> x <%=chara.maxLevelRequirement.materials[i].amount%></li>
   <% } %>
   </ul>
-  
-  <p><a href="/"><button>Return to Index</button></a></p>
+  <% if(userDetails){ %>
+  <div>
+    <a href="/characters/<%=chara._id%>/edit"><button class="btn btn-outline-primary">Edit</button></a>
+    <form class="form-inline" action="/characters/<%=chara._id%>?_method=DELETE" method="POST">
+    <button class="btn btn-outline-primary">Delete</button>
+    </form>
+  </div>
+  <% } %>
+  <br>
+  <p><a href="/" class="btn btn-primary">Return to Index</a></p>
   </main>
   <%- include(`../../partials/footer.ejs`)%>
 </body>

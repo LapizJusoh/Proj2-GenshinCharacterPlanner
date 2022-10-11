@@ -5,11 +5,20 @@
 </head>
 <body>
   <%- include(`../../partials/header.ejs`)%>
-  <main class="container">
+  <main class="container my-4">
     <h1>Add new character</h1>
     <form action="/characters" method="POST">
       <p>Name: <input type="text" name="name" placeholder="Character Name" required></p>
-      <p>Element: <input type="text" name="element" placeholder="Character's Element" required></p>
+      <p>Element: <select name="element" required>
+        <option value="Pyro">Pyro</option>
+        <option value="Hydro">Hydro</option>
+        <option value="Electro">Electro</option>
+        <option value="Dendro">Dendro</option>
+        <option value="Anemo">Anemo</option>
+        <option value="Geo">Geo</option>
+        <option value="Cryo">Cryo</option>
+      </select>
+      </p>
       <p>Image URL: <input type="text" name="image" placeholder="Should be 256x256 px"></p>
       <p>Talents:</p><% let maxTalent = 3;for(let i=0;i<maxTalent;i++){ %>
       <ol>
@@ -28,9 +37,9 @@
       </ul>
       <% } %>
       <p><button>Add new Material</button></p>
-      <p><input type="submit" value="Submit"></p>
+      <p><input type="submit" class="btn btn-outline-primary" value="Add New Character"></p>
     </form>
-    <p><a href="/"><button>Return to Index</button></a></p>
+    <p><a href="/" class="btn btn-primary">Return to Index</a></p>
   </main>
   <%- include(`../../partials/footer.ejs`)%>
 </body>

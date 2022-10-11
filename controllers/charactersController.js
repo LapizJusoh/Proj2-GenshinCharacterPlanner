@@ -28,7 +28,11 @@ router.get(`/`,(req,res)=>{
 //------ New
 
 router.get(`/new`, (req, res) => {
-  res.render(`characters/new.ejs`,{userDetails: req.session.currentUser});
+  if(req.session.currentUser){
+    res.render(`characters/new.ejs`,{userDetails: req.session.currentUser})
+  } else {
+    res.redirect(`/`)
+  }
 });
 
 //------ Post
@@ -53,7 +57,7 @@ router.get(`/:id`, (req, res) => {
   Characters.findById(req.params.id,(err,charaDetails)=>{
     if(err){
       console.log(`Error encountered while GETTING data: `, err.message);
-      res.send(err);
+      res.redirect(`/`);
     } else {
       res.render(`characters/show.ejs`,{chara: charaDetails, userDetails: req.session.currentUser});
     }
@@ -68,7 +72,11 @@ router.get(`/:id/edit`, (req, res) => {
       console.log(`Error encountered while GETTING data. `,err.message);
       res.send(err.message);
     } else {
-      res.render(`characters/edit.ejs`,{chara: charaSpecific,userDetails: req.session.currentUser})
+      if(req.session.currentUser){
+        res.render(`characters/edit.ejs`,{chara: charaSpecific,userDetails: req.session.currentUser})
+      } else {
+        res.redirect(`/`)
+      }
     }
   })
 });

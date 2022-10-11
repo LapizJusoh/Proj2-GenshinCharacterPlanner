@@ -5,9 +5,12 @@
     </div>
     <div class="p-2 align-self-center">
       <% if(userDetails){ %>
-      Logged in <% } else { %><a href="/users/new">Register</a><%}%> | 
-      <% if(userDetails){ %><form action="/sessions?_method=DELETE" method="POST"><button class="">Log Out</button></form><% } else { %><a href="/sessions/new">Log In</a> <% } %>
-      <p>Welcome<% if(userDetails){ %> back, <%=userDetails.username%><% } else { %>, Traveller!</p> <% } %>
+      Logged in <% } else { %><a href="/users/new" class="btn btn-secondary">Register</a><%}%> | 
+      <% if(userDetails){ %><form action="/sessions?_method=DELETE" method="POST"><button class="btn btn-secondary">Log Out</button></form><% } else { %><a class="btn btn-secondary" href="/sessions/new">Log In</a> <% } %>
+      <p>Welcome<% if(userDetails){ %> back, <strong><%=userDetails.username%></strong>!<% } else { %>, Traveller!</p> <% } %>
     </div>
+  </div>
+  <div>
+
   </div>
 </header>

@@ -5,11 +5,20 @@
 </head>
 <body>
   <%- include(`../../partials/header.ejs`)%>
-  <main class="container">
+  <main class="container my-4">
     <h1>Editing character: </h1>
     <form action="/characters/<%=chara.id%>?_method=PUT" method="POST">
       <p>Name: <input type="text" name="name" value="<%=chara.name%>" required></p>
-      <p>Name: <input type="text" name="element" value="<%=chara.element%>" required></p>
+      <p>Element: <select name="element" required>
+        <option value="Pyro" <% if(chara.element==="Pyro"){ %>selected<% } %>>Pyro</option>
+        <option value="Hydro" <% if(chara.element==="Hydro"){ %>selected<% } %>>Hydro</option>
+        <option value="Electro" <% if(chara.element==="Electro"){ %>selected<% } %>>Electro</option>
+        <option value="Dendro" <% if(chara.element==="Dendro"){ %>selected<% } %>>Dendro</option>
+        <option value="Anemo" <% if(chara.element==="Anemo"){ %>selected<% } %>>Anemo</option>
+        <option value="Geo" <% if(chara.element==="Geo"){ %>selected<% } %>>Geo</option>
+        <option value="Cryo" <% if(chara.element==="Cryo"){ %>selected<% } %>>Cryo</option>
+      </select>
+      </p>
       <img src="<%=chara.image%>" style="width:100px;">
       <p>Preview Image</p>
       <p>Image URL: <input type="text" name="image" value="<%=chara.image%>"></p>
@@ -28,9 +37,9 @@
           <li>Material amount: <input type="number" name="maxLevelRequirement.materials[<%=i%>][amount]" value="<%=chara.maxLevelRequirement.materials[i].amount%>"></li>
           </ul>
       <% } %>
-      <p><input type="submit" value="Submit"></p>
+      <p><input type="submit" class="btn btn-outline-primary" value="Edit"></p>
     </form>
-    <p><a href="/"><button>Return to Index</button></a></p>
+    <p><a href="/" class="btn btn-primary">Return to Index</a></p>
   </main>
   <%- include(`../../partials/footer.ejs`)%>
 </body>
