@@ -15,6 +15,7 @@ A simple application where users can find not only guides on what material they 
 - MongoDB and Mongoose, for the database 
 - Node Package dotenv, method-override, session
 - Bcrypt, for security
+- Bootstrap
 
 ## Yet-To-Be-Implemented Future Features
 - Add more Collection for other game data (Domains, Weapons, Artifact)
