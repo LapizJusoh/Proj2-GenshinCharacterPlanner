@@ -20,13 +20,14 @@
       <% } %>
     </div>
 
+    <% if(userDetails){ %>
     <div>
       <a href="/materials/<%=mat._id%>/edit"><button class="btn btn-outline-primary">Edit</button></a>
       <form class="form-inline" action="/materials/<%=mat._id%>?_method=DELETE" method="POST">
       <button class="btn btn-outline-primary">Delete</button>
       </form>
     </div>
-
+    <% } %>
     <br>
     <p><a href="/" class="btn btn-primary">Return to Index</a></p>
   </main>
