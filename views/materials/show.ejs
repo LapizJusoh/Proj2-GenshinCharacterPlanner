@@ -5,6 +5,32 @@
 </head>
 <body>
   <%- include(`../../partials/header.ejs`)%>
+
+  <main class="container my-4">
+    <div class="text-center">
+      <img src="<%=mat.image%>"></image>
+      <h1 class="dataTitle"><%=mat.name%></h1>
+    </div>
+    <h4><strong>Type:</strong> <%=mat.type%></h4>
+    <h4><strong>Get From:</strong> <%=mat.from%></h4>
+
+    <div class="row justify-content-center">
+      <% for(let i=0;i<mat.fromImage.length;i++){%>
+      <div class="col"><image src="<%=mat.fromImage[i]%>" style="max-width: 200px; max-height: 200px;"></image></div>
+      <% } %>
+    </div>
+
+    <div>
+      <a href="/materials/<%=mat._id%>/edit"><button class="btn btn-outline-primary">Edit</button></a>
+      <form class="form-inline" action="/materials/<%=mat._id%>?_method=DELETE" method="POST">
+      <button class="btn btn-outline-primary">Delete</button>
+      </form>
+    </div>
+
+    <br>
+    <p><a href="/" class="btn btn-primary">Return to Index</a></p>
+  </main>
+
   <%- include(`../../partials/footer.ejs`)%>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <body>
   <%- include(`../partials/header.ejs`)%>
   <main class="container my-4">
-    <h2 class="text-center">Characters</h2>
+    <h2 class="text-center dataTitle">Characters</h2>
     <div class="row justify-content-center text-center"><% for(let i=0;i<chara.length;i++){ %>
       <div class="col"><a href="/characters/<%=chara[i]._id%>">
         <figure class="figure charaFigure">
@@ -21,11 +21,25 @@
       </div><% } %>
     </div>
     <% if(userDetails) { %><br><p><a href="/characters/new"><button class="btn btn-primary">Add New Character</button></a></p><% } %>
-    <h2>Domains</h2>
+    <h2 class="text-center dataTitle">Domains</h2>
 
-    <h2>Materials</h2>
+    <h2 class="text-center dataTitle">Materials</h2>
+    <div class="row justify-content-center text-center"><% for(let i=0;i<mat.length;i++){ %>
+      <div class="col"><a href="/materials/<%=mat[i]._id%>">
+        <figure class="figure charaFigure">
+          <img src="<%=mat[i].image%>" class="figure-img img-fluid rounded" style="max-width: 150px;">
+          <figcaption class="text-center"><strong><%=mat[i].name%></strong></figcaption>
+        </figure></a>
+        <% if(userDetails) {%>
+        <div><a href="/materials/<%=mat[i]._id%>/edit"><button class="btn btn-outline-primary">Edit</button></a>
+          <form class="form-inline" action="/materials/<%=mat[i]._id%>?_method=DELETE" method="POST">
+          <button class="btn btn-outline-primary">Delete</button>
+          </form></div> <% } %>
+      </div><% } %>
+    </div>
+    <% if(userDetails) { %><br><p><a href="/materials/new"><button class="btn btn-primary">Add New Material</button></a></p><% } %>
 
-    <h2>Enemies</h2>
+    <h2 class="text-center dataTitle">Enemies</h2>
   </main>
   <%- include(`../partials/footer.ejs`)%>
 </body>

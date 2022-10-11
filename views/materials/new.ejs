@@ -5,6 +5,29 @@
 </head>
 <body>
   <%- include(`../../partials/header.ejs`)%>
+
+  <main class="container my-4">
+    <h1>Add new material</h1>
+    <form action="/materials" method="POST">
+      <p>Name: <input type="text" name="name" placeholder="Material Name" required></p>
+      <p>Image URL: <input type="text" name="image" placeholder="Should be 256x256 px"></p>
+      <p>Type: <select name="type" required>
+        <option value="Local Collectibles">Local Collectibles</option>
+        <option value="Mob Drop">Mob Drop</option>
+        <option value="Boss Drop">Boss Drop</option>
+      </select>
+      <p>From: <input type="text" name="from" placeholder="Where to obtain material?"></p>
+      <p>Image URL of where to get material(from location, enemy, boss, etc.)?</p>
+      <ul>
+      <% for(let i=0;i<3;i++){ %>
+        <li><input type="text" name="fromImage[<%=i%>]" placeholder="Image URL  <%=i%>"></li>
+      <% } %>
+       </ul>
+      <p><input type="submit" class="btn btn-outline-primary" value="Add New Material"></p>
+    </form>
+    <p><a href="/" class="btn btn-primary">Return to Index</a></p>
+  </main>
+
   <%- include(`../../partials/footer.ejs`)%>
 </body>
 </html>

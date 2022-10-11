@@ -26,10 +26,11 @@ const session = require(`express-session`);
 const mongoose = require(`mongoose`);
 const methodOverride = require(`method-override`);
 const Characters = require(`./models/characters.js`);
-const CharaSeed = require(`./models/seeds.js`);
+const Materials = require(`./models/materials.js`);
 const charactersController = require(`./controllers/charactersController.js`);
 const usersController = require(`./controllers/usersController.js`)
 const sessionsController = require(`./controllers/sessionsController.js`)
+const materialsController = require(`./controllers/materialsController.js`)
 
 require(`dotenv`).config();
 
@@ -59,6 +60,7 @@ app.use(express.static(`public`));
 app.use(`/characters`,charactersController);
 app.use(`/users`,usersController);
 app.use(`/sessions`,sessionsController);
+app.use(`/materials`,materialsController);
 
 /*======================
   MONGOOSE-CONNECTION
@@ -75,8 +77,23 @@ mongoose.connection.on(`error`,(err)=> console.log(err))
 ======================*/
 
 app.get(`/`,(req,res)=>{
-  res.redirect(`/characters`);
+  Characters.find({},(err,characterData)=>{
+    if(err){
+      console.log(`Error while retrieving data: `, err.message)
+      res.send(err.message);
+    } else {
+      Materials.find({},(err,matData)=>{
+        if(err){
+          console.log(`Error while retrieving data: `, err.message)
+          res.send(err.message);
+        } else {
+          res.render(`index.ejs`, {chara: characterData, mat: matData,userDetails: req.session.currentUser});
+        }
+      }).sort({name:1})
+    }
+  }).sort({name:1})
 })
+
 
 app.listen(portNum, () => {
   console.log(`Currently listening to PORT: `, portNum);

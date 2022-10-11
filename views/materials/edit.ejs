@@ -5,6 +5,30 @@
 </head>
 <body>
   <%- include(`../../partials/header.ejs`)%>
+
+  <main class="container my-4">
+    <h1>Edit current material</h1>
+    <form action="/materials/<%=mat.id%>?_method=PUT" method="POST">
+      <p>Name: <input type="text" name="name" value="<%=mat.name%>" required></p>
+      <p>Image URL: <input type="text" name="image" value="<%=mat.image%>"></p>
+      <p>Type: <select name="type" required>
+        <option value="Local Collectibles" <% if(mat.type==="Local Collectibles"){ %>selected<% } %> >Local Collectibles</option>
+        <option value="Mob Drop" <% if(mat.type==="Mob Drop"){ %>selected<% } %> >Mob Drop</option>
+        <option value="Boss Drop" <% if(mat.type==="Boss Drop"){ %>selected<% } %> >Boss Drop</option>
+      </select>
+      <p>From: <input type="text" name="from" value="<%=mat.from%>"></p>
+      <p>Image URL of where to get material(from location, enemy, boss, etc.)?</p>
+      <ul>
+      <% for(let i=0;i<mat.fromImage.length;i++){ %>
+        <li><input type="text" name="fromImage[<%=i%>]" value="<%=mat.fromImage[i]%>"></li>
+      <% } %>
+       </ul>
+      <p><input type="submit" class="btn btn-outline-primary" value="Update Material"></p>
+    </form>
+    <p><a href="/" class="btn btn-primary">Return to Index</a></p>
+  </main>
+
+
   <%- include(`../../partials/footer.ejs`)%>
 </body>
 </html>

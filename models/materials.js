@@ -5,7 +5,8 @@ const materialsSchema = new Schema({
   name: {type:String,required:true},
   image: String,
   type: String,
-  from: String
+  from: String,
+  fromImage: [{type:String}]
 })
 
 materialsSchema.index({name:1},{unique:true})
