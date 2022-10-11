@@ -21,3 +21,7 @@ form {
 .dataTitle {
   font-family: 'Libre Baskerville', serif;
 }
+
+.nav-link:hover{
+  background-color: aquamarine;
+}

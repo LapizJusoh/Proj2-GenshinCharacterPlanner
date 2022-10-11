@@ -32,7 +32,24 @@
   <ul>
     <li>Mora: <%=chara.maxLevelRequirement.mora%></li>
   <% for(let i=0;i<chara.maxLevelRequirement.materials.length;i++){ %>
-    <li><%=chara.maxLevelRequirement.materials[i].name%> x <%=chara.maxLevelRequirement.materials[i].amount%></li>
+    <li>
+      <%
+      for(let j=0;j<mat.length;j++) {
+        if(mat[j].name==chara.maxLevelRequirement.materials[i].name){
+      %><a href="/materials/<%=mat[j].id%>">
+      <% }
+      }
+      %>
+      <%=chara.maxLevelRequirement.materials[i].name%>
+      <%
+      for(let j=0;j<mat.length;j++) {
+        if(mat[j].name==chara.maxLevelRequirement.materials[i].name){
+      %></a>
+      <% }
+      }
+      %>
+      
+       x <%=chara.maxLevelRequirement.materials[i].amount%></li>
   <% } %>
   </ul>
   <% if(userDetails){ %>
@@ -44,7 +61,8 @@
   </div>
   <% } %>
   <br>
-  <p><a href="/" class="btn btn-primary">Return to Index</a></p>
+  <p><a href="/characters" class="btn btn-primary">Return to Character Index</a></p>
+  <p><a href="/" class="btn btn-primary">Return to ALL Index</a></p>
   </main>
   <%- include(`../../partials/footer.ejs`)%>
 </body>

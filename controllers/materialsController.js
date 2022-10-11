@@ -12,6 +12,18 @@ const MatSeed = require(`../models/materialSeed.js`)
   ROUTERS
 ======================*/
 
+//------ Index
+
+router.get(`/`,(req,res)=>{
+  Materials.find({},(err,matData)=>{
+    if(err){
+      console.log(`Error while retrieving data: `, err.message)
+    } else {
+      res.render(`materials/index.ejs`, {mat: matData,userDetails: req.session.currentUser});
+    }
+  }).sort({name:1})
+})
+
 //------ New
 
 router.get(`/new`, (req, res) => {

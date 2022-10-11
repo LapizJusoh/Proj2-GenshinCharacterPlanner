@@ -10,7 +10,11 @@
       <p>Welcome<% if(userDetails){ %> back, <strong><%=userDetails.username%></strong>!<% } else { %>, Traveller!</p> <% } %>
     </div>
   </div>
-  <div>
-
-  </div>
+  <nav class="nav nav-tabs nav-justified">
+    <a href="/" class="nav-link">ALL</a>
+    <a href="/characters" class="nav-link">Characters</a>
+    <a href="/" class="nav-link disabled">Domains</a>
+    <a href="/materials" class="nav-link">Materials</a>
+    <a href="/" class="nav-link disabled">Enemies</a>
+  </nav>
 </header>

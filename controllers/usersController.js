@@ -32,7 +32,7 @@ router.post(`/`, (req,res)=>{
       res.send(err.message)
     } else {
       console.log(`New user created. `, newUser);
-      res.redirect(`/`);
+      res.redirect(`/sessions/new`);
     }
   })
 })

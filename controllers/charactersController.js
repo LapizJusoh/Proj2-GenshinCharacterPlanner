@@ -5,6 +5,7 @@
 const express = require(`express`);
 const router = express.Router();
 const Characters = require(`../models/characters.js`);
+const Materials = require(`../models/materials.js`);
 const Users = require(`../models/users.js`);
 const CharaSeed = require(`../models/seeds.js`)
 
@@ -58,11 +59,17 @@ router.get(`/:id`, (req, res) => {
       console.log(`Error encountered while GETTING data: `, err.message);
       res.redirect(`/`);
     } else {
-      res.render(`characters/show.ejs`,{chara: charaDetails, userDetails: req.session.currentUser});
+      Materials.find({},(err,matData)=>{
+        if(err){
+          console.log(`Error while retrieving data: `, err.message)
+        } else {
+          res.render(`characters/show.ejs`,{chara: charaDetails,mat: matData,userDetails: req.session.currentUser});
+        }
+      })
     }
   })
 });
-
+// 
 //------ Edit
 
 router.get(`/:id/edit`, (req, res) => {
